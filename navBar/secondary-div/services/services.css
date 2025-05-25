@@ -1,0 +1,94 @@
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f9fafb;
+      margin: 0;
+      color: #323f4b;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 3rem auto;
+      padding: 0 2rem 4rem;
+    }
+
+    h1 {
+      font-weight: 700;
+      font-size: 2.8rem;
+      color: #2563eb;
+      margin-bottom: 1.2rem;
+      text-align: center;
+    }
+
+    p.intro {
+      max-width: 650px;
+      margin: 0 auto 3rem;
+      font-size: 1.1rem;
+      color: #475569;
+      text-align: center;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2.4rem;
+    }
+
+    .service-card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.07);
+      padding: 2rem;
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+      cursor: default;
+    }
+
+    .service-card:hover {
+      box-shadow: 0 14px 28px rgba(0,0,0,0.12);
+      transform: translateY(-5px);
+    }
+
+    .service-icon {
+      display: inline-block;
+      background: #2563eb;
+      color: white;
+      border-radius: 50%;
+      width: 48px;
+      height: 48px;
+      text-align: center;
+      line-height: 48px;
+      font-size: 24px;
+      margin-bottom: 1.2rem;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      color: #1e293b;
+      margin-bottom: 0.8rem;
+    }
+
+    p {
+      color: #475569;
+      font-size: 1rem;
+      margin: 0;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #94a3b8;
+      margin-top: 3rem;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        margin: 1rem;
+        padding: 0 1rem 3rem;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+    }

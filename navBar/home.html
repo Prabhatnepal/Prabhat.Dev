@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Prabhat || .Homepage - Teams</title>
+<link rel="stylesheet" href="/home.css">
+</head>
+<body>
+  <div class="scene" id="scene" tabindex="0" aria-label="3D rotating team circle">
+    <div class="circle-frame" id="circleFrame" role="list">
+      <!-- Teams inserted by JS -->
+    </div>
+  </div>
+
+<script>
+  const teams = [
+    { name: "Prabhat Nepal", post: "Frontend Developer" },
+    { name: "Sohan Siwakoti", post: "Backend Developer" },
+    { name: "Manish J Rai", post: "UI/UX Designer" },
+    { name: "Aayush Luitel", post: "Project Manager" },
+    { name: "Dhiraj Rai", post: "UI/UX Designer" }
+  ];
+
+  const circleFrame = document.getElementById('circleFrame');
+  const scene = document.getElementById('scene');
+  const teamCount = teams.length;
+  const radius = 150; // distance from center on Z axis
+
+  // Create each team element positioned in 3D circle
+  teams.forEach((team, i) => {
+    const teamDiv = document.createElement('div');
+    teamDiv.classList.add('team');
+    teamDiv.setAttribute('role', 'listitem');
+    teamDiv.setAttribute('tabindex', '0');
+    teamDiv.setAttribute('aria-label', team.name + ", " + team.post);
+
+    // Create label div
+    const labelDiv = document.createElement('div');
+    labelDiv.className = 'team-label';
+    labelDiv.textContent = team.name;
+
+    // Create content container
+    const contentDiv = document.createElement('div');
+    contentDiv.className = 'team-content';
+
+    const nameDiv = document.createElement('div');
+    nameDiv.className = 'team-name';
+    nameDiv.textContent = team.name;
+
+    const postDiv = document.createElement('div');
+    postDiv.className = 'team-post';
+    postDiv.textContent = team.post;
+
+    contentDiv.appendChild(nameDiv);
+    contentDiv.appendChild(postDiv);
+
+    teamDiv.appendChild(labelDiv);
+    teamDiv.appendChild(contentDiv);
+
+    // Compute position angle around the circle
+    const angle = (360 / teamCount) * i;
+    teamDiv.style.transform = "rotateY(" + angle + "deg) translateZ(" + radius + "px)";
+
+    circleFrame.appendChild(teamDiv);
+
+    // Pause rotation when hovered or focused
+    teamDiv.addEventListener('mouseenter', () => {
+      scene.classList.add('paused');
+    });
+    teamDiv.addEventListener('mouseleave', () => {
+      scene.classList.remove('paused');
+    });
+    teamDiv.addEventListener('focus', () => {
+      scene.classList.add('paused');
+    });
+    teamDiv.addEventListener('blur', () => {
+      scene.classList.remove('paused');
+    });
+  });
+</script>
+</body>
+</html>
+
